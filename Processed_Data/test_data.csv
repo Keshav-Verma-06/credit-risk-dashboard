@@ -1,0 +1,201 @@
+Age,Sex,Job,Housing,Saving accounts,Checking account,Credit amount,Duration,Purpose,Credit_to_Duration,Age_Group,Risk
+37,female,0,own,quite rich,little,1718,28,education,59.241379310344826,36-50,0
+66,male,2,own,moderate,little,13686,26,radio/TV,506.8888888888889,50+,0
+25,male,1,own,little,rich,904,28,radio/TV,31.17241379310345,18-25,0
+46,female,2,rent,quite rich,moderate,7938,53,car,147.0,36-50,0
+51,female,1,rent,rich,little,14206,12,radio/TV,1092.7692307692307,50+,0
+67,male,1,rent,quite rich,little,15283,6,furniture,2183.285714285714,50+,0
+70,female,0,rent,moderate,little,6450,48,business,131.6326530612245,50+,1
+38,female,1,own,moderate,little,8107,59,car,135.11666666666667,36-50,0
+50,female,2,own,quite rich,rich,928,35,business,25.77777777777778,36-50,0
+32,male,2,own,little,Unknown,11582,19,car,579.1,26-35,0
+66,male,2,own,moderate,little,17213,11,education,1434.4166666666667,50+,0
+71,male,2,rent,little,little,10219,56,car,179.28070175438597,50+,1
+35,male,1,free,little,rich,8499,40,car,207.29268292682926,26-35,0
+58,male,1,rent,Unknown,little,16551,30,business,533.9032258064516,50+,0
+45,male,1,own,moderate,little,19372,42,radio/TV,450.51162790697674,36-50,1
+66,female,2,rent,quite rich,moderate,12486,12,car,960.4615384615385,50+,0
+21,male,2,rent,moderate,moderate,11843,23,car,493.4583333333333,18-25,0
+33,male,1,own,moderate,little,2932,38,furniture,75.17948717948718,26-35,0
+61,male,2,own,moderate,little,13497,27,domestic appliances,482.0357142857143,50+,1
+63,female,2,own,little,little,18842,60,education,308.88524590163934,50+,1
+19,female,1,own,moderate,rich,13689,31,car,427.78125,18-25,0
+67,male,2,rent,moderate,moderate,14838,13,car,1059.857142857143,50+,0
+71,female,2,own,moderate,little,15328,25,furniture,589.5384615384615,50+,0
+69,male,3,rent,little,little,3035,13,furniture,216.78571428571428,50+,0
+31,male,2,own,quite rich,moderate,2913,43,car,66.20454545454545,26-35,0
+61,female,2,own,little,little,18502,18,furniture,973.7894736842105,50+,1
+61,female,1,own,rich,rich,8004,9,radio/TV,800.4,50+,0
+41,female,2,own,Unknown,Unknown,14142,7,car,1767.75,36-50,0
+36,male,0,own,rich,rich,10229,42,radio/TV,237.88372093023256,36-50,1
+45,male,3,own,Unknown,little,14595,5,education,2432.5,36-50,0
+71,female,1,rent,little,little,4742,54,radio/TV,86.21818181818182,50+,1
+47,female,3,own,little,little,11482,52,vacation/others,216.64150943396226,36-50,1
+54,female,3,rent,Unknown,little,3302,22,radio/TV,143.56521739130434,50+,0
+53,female,2,own,moderate,moderate,14003,58,vacation/others,237.33898305084745,50+,0
+67,female,2,rent,moderate,little,6409,30,car,206.74193548387098,50+,0
+62,male,2,own,Unknown,little,2561,5,furniture,426.8333333333333,50+,0
+27,female,1,own,moderate,little,13612,44,radio/TV,302.4888888888889,26-35,0
+30,male,1,rent,rich,little,1058,9,radio/TV,105.8,26-35,0
+48,male,2,own,little,rich,11160,14,education,744.0,36-50,0
+19,male,0,own,little,moderate,824,10,car,74.9090909090909,18-25,1
+37,female,2,own,little,moderate,4823,66,radio/TV,71.98507462686567,36-50,0
+56,male,0,own,quite rich,moderate,13315,58,furniture,225.67796610169492,50+,1
+63,male,1,free,moderate,moderate,12708,65,car,192.54545454545453,50+,0
+18,male,1,own,moderate,little,8215,64,car,126.38461538461539,18-25,1
+57,male,1,rent,little,little,7419,18,education,390.4736842105263,50+,0
+49,male,1,own,little,moderate,16946,13,vacation/others,1210.4285714285713,36-50,0
+23,female,1,own,little,moderate,10936,19,car,546.8,18-25,0
+53,male,1,own,Unknown,rich,316,30,education,10.193548387096774,50+,0
+19,female,3,free,little,little,4145,17,business,230.27777777777777,18-25,0
+34,male,1,rent,moderate,Unknown,5669,67,furniture,83.36764705882354,26-35,0
+69,male,2,rent,moderate,little,4628,7,car,578.5,50+,0
+37,male,2,rent,moderate,little,12717,50,radio/TV,249.35294117647058,36-50,0
+57,male,0,rent,little,little,16865,27,radio/TV,602.3214285714286,50+,1
+36,female,1,own,moderate,little,3920,9,car,392.0,36-50,0
+61,male,2,own,quite rich,rich,9722,22,business,422.69565217391306,50+,0
+25,male,1,rent,rich,little,12225,15,education,764.0625,18-25,0
+41,male,3,rent,little,little,9022,37,car,237.42105263157896,36-50,1
+70,male,3,own,little,little,4961,50,radio/TV,97.27450980392157,50+,1
+28,female,2,own,little,rich,6349,56,car,111.3859649122807,26-35,0
+39,male,1,own,little,moderate,13632,32,radio/TV,413.09090909090907,36-50,0
+46,female,1,rent,little,little,11809,36,repairs,319.1621621621622,36-50,1
+45,female,1,own,little,little,14624,32,education,443.1515151515151,36-50,1
+56,male,2,free,Unknown,little,16585,16,education,975.5882352941177,50+,0
+51,female,2,own,moderate,moderate,14266,10,business,1296.909090909091,50+,0
+64,male,0,own,little,moderate,16255,15,car,1015.9375,50+,1
+33,male,2,rent,quite rich,little,4865,63,radio/TV,76.015625,26-35,0
+46,male,0,own,little,little,14694,9,car,1469.4,36-50,1
+66,female,2,own,rich,little,422,41,education,10.047619047619047,50+,0
+46,female,1,own,little,little,3977,71,car,55.236111111111114,36-50,1
+62,female,0,rent,moderate,little,12241,34,car,349.74285714285713,50+,1
+19,female,2,free,little,little,18769,46,business,399.3404255319149,18-25,1
+41,female,3,rent,moderate,little,13067,38,education,335.05128205128204,36-50,0
+55,male,0,own,little,little,2346,41,vacation/others,55.857142857142854,50+,1
+56,male,0,rent,little,little,11836,45,radio/TV,257.30434782608694,50+,1
+22,male,1,rent,rich,moderate,5920,14,car,394.6666666666667,18-25,0
+69,male,0,own,little,little,5861,45,car,127.41304347826087,50+,1
+29,male,2,own,little,little,12268,65,radio/TV,185.87878787878788,26-35,1
+63,male,0,own,quite rich,little,1267,9,car,126.7,50+,0
+57,male,2,own,rich,little,2294,13,domestic appliances,163.85714285714286,50+,0
+57,male,1,own,little,little,8417,59,education,140.28333333333333,50+,1
+61,female,2,free,moderate,little,17393,5,repairs,2898.8333333333335,50+,1
+34,male,1,free,little,little,13600,13,repairs,971.4285714285714,26-35,1
+30,female,1,own,little,little,12160,66,car,181.49253731343285,26-35,1
+63,female,1,rent,rich,moderate,6380,49,furniture,127.6,50+,0
+69,female,1,own,quite rich,little,14822,26,furniture,548.9629629629629,50+,0
+36,female,2,free,little,little,19893,37,domestic appliances,523.5,36-50,1
+64,male,3,rent,moderate,Unknown,11491,34,business,328.3142857142857,50+,0
+64,female,0,rent,little,Unknown,7332,64,business,112.8,50+,1
+52,female,2,own,rich,moderate,3133,7,education,391.625,50+,0
+19,female,3,own,little,rich,10987,41,furniture,261.5952380952381,18-25,1
+47,male,3,own,moderate,little,15855,66,radio/TV,236.6417910447761,36-50,1
+26,male,3,own,moderate,little,10944,5,education,1824.0,26-35,0
+21,male,1,own,moderate,little,13123,24,car,524.92,18-25,0
+35,female,0,own,rich,little,17315,12,car,1331.923076923077,26-35,1
+69,male,2,own,little,little,6266,51,education,120.5,50+,1
+70,male,0,rent,rich,moderate,3401,32,vacation/others,103.06060606060606,50+,0
+31,female,1,own,little,rich,10361,53,radio/TV,191.87037037037038,26-35,1
+69,female,2,own,rich,moderate,9743,25,radio/TV,374.7307692307692,50+,0
+56,female,1,rent,little,little,15714,32,car,476.1818181818182,50+,1
+68,female,1,free,little,little,2844,49,vacation/others,56.88,50+,0
+50,male,1,own,little,moderate,4425,47,car,92.1875,36-50,0
+31,female,1,own,moderate,little,8696,70,repairs,122.47887323943662,26-35,0
+52,female,1,free,moderate,moderate,13669,61,domestic appliances,220.46774193548387,50+,0
+32,female,1,own,moderate,little,18964,70,radio/TV,267.09859154929575,26-35,1
+64,male,1,rent,Unknown,little,17987,65,car,272.530303030303,50+,1
+24,male,0,own,little,moderate,4629,47,furniture,96.4375,18-25,1
+43,male,1,rent,moderate,little,18885,31,radio/TV,590.15625,36-50,0
+29,male,2,own,moderate,moderate,13740,58,vacation/others,232.88135593220338,26-35,0
+67,male,0,free,little,little,1832,46,business,38.97872340425532,50+,1
+46,male,1,own,little,little,4817,41,car,114.69047619047619,36-50,0
+59,female,2,own,quite rich,little,4272,49,radio/TV,85.44,50+,0
+24,female,2,rent,little,moderate,11471,36,car,310.02702702702703,18-25,1
+71,male,1,own,little,little,2399,40,business,58.51219512195122,50+,1
+48,male,1,own,little,little,17482,50,car,342.7843137254902,36-50,1
+36,female,1,rent,rich,little,8409,11,car,700.75,36-50,0
+35,female,1,own,little,little,7034,43,domestic appliances,159.86363636363637,26-35,1
+42,male,2,rent,little,little,14885,56,furniture,261.140350877193,36-50,1
+33,male,0,free,little,little,8188,49,furniture,163.76,26-35,1
+20,male,0,own,little,moderate,15885,17,car,882.5,18-25,1
+41,female,0,rent,little,rich,7648,59,car,127.46666666666667,36-50,1
+57,male,3,free,little,moderate,1247,27,furniture,44.535714285714285,50+,0
+54,male,3,own,little,rich,15448,33,education,454.3529411764706,50+,0
+20,female,0,own,moderate,little,12462,34,car,356.0571428571429,18-25,1
+39,female,2,own,Unknown,little,2750,37,car,72.36842105263158,36-50,0
+32,male,2,rent,quite rich,little,8045,19,radio/TV,402.25,26-35,0
+29,female,1,own,rich,little,15983,40,education,389.8292682926829,26-35,0
+51,female,3,rent,moderate,Unknown,3272,35,radio/TV,90.88888888888889,50+,0
+20,male,0,rent,moderate,moderate,9744,12,domestic appliances,749.5384615384615,18-25,0
+47,male,0,own,moderate,moderate,4747,63,radio/TV,74.171875,36-50,0
+74,male,2,own,rich,little,11360,13,car,811.4285714285714,50+,0
+29,male,0,own,rich,little,4400,21,furniture,200.0,26-35,0
+26,male,2,own,quite rich,little,17472,59,car,291.2,26-35,1
+35,male,1,own,moderate,moderate,16638,31,education,519.9375,26-35,0
+45,female,1,own,moderate,moderate,10816,68,repairs,156.7536231884058,36-50,0
+64,female,2,own,moderate,Unknown,12642,63,radio/TV,197.53125,50+,0
+69,female,2,free,moderate,moderate,10437,70,car,147.0,50+,0
+27,female,2,own,Unknown,moderate,8990,36,business,242.97297297297297,26-35,0
+53,male,2,own,Unknown,little,7444,4,car,1488.8,50+,0
+71,female,2,own,quite rich,little,17514,28,car,603.9310344827586,50+,1
+38,female,1,own,moderate,little,6490,15,car,405.625,36-50,0
+66,female,1,own,moderate,little,14845,46,domestic appliances,315.8510638297872,50+,1
+27,male,2,rent,moderate,moderate,5148,57,furniture,88.75862068965517,26-35,0
+58,male,1,rent,little,rich,18044,37,car,474.8421052631579,50+,0
+40,male,1,rent,little,Unknown,6630,15,radio/TV,414.375,36-50,0
+40,female,3,rent,moderate,rich,3367,24,radio/TV,134.68,36-50,0
+21,male,2,own,little,moderate,3257,42,car,75.74418604651163,18-25,1
+50,male,2,rent,quite rich,moderate,3916,26,car,145.03703703703704,36-50,0
+50,male,2,rent,little,little,9038,13,education,645.5714285714286,36-50,0
+66,female,1,own,moderate,little,14446,20,furniture,687.9047619047619,50+,0
+29,male,2,own,rich,little,814,61,car,13.129032258064516,26-35,0
+53,female,2,own,moderate,little,3142,14,vacation/others,209.46666666666667,50+,0
+70,female,2,own,moderate,little,16097,14,vacation/others,1073.1333333333334,50+,0
+36,male,1,own,moderate,Unknown,2363,69,business,33.75714285714286,36-50,0
+50,male,2,own,quite rich,little,16386,18,radio/TV,862.421052631579,36-50,0
+62,male,1,own,moderate,little,1850,4,furniture,370.0,50+,0
+62,male,1,free,rich,Unknown,2313,21,furniture,105.13636363636364,50+,0
+37,male,2,own,little,Unknown,17135,37,business,450.92105263157896,36-50,1
+38,female,3,rent,moderate,rich,14499,4,repairs,2899.8,36-50,0
+45,female,1,own,little,moderate,15978,21,radio/TV,726.2727272727273,36-50,0
+33,male,1,own,quite rich,little,1219,15,radio/TV,76.1875,26-35,0
+51,female,2,own,little,little,15417,20,education,734.1428571428571,50+,1
+52,female,1,own,little,little,3931,36,education,106.24324324324324,50+,0
+56,male,3,own,moderate,moderate,8106,5,education,1351.0,50+,0
+42,male,1,own,little,rich,6154,28,furniture,212.20689655172413,36-50,0
+39,female,1,own,moderate,Unknown,18717,24,car,748.68,36-50,0
+61,female,2,rent,quite rich,little,13684,35,car,380.1111111111111,50+,0
+53,male,0,free,little,little,2411,61,car,38.88709677419355,50+,1
+45,male,2,own,rich,little,10595,37,furniture,278.8157894736842,36-50,1
+56,male,2,rent,quite rich,little,19424,48,car,396.40816326530614,50+,0
+70,female,1,free,Unknown,little,2250,44,car,50.0,50+,0
+65,female,1,own,moderate,little,10708,31,furniture,334.625,50+,0
+22,male,1,own,Unknown,rich,8667,37,domestic appliances,228.07894736842104,18-25,0
+46,male,0,rent,little,little,5586,68,education,80.95652173913044,36-50,1
+18,male,1,rent,quite rich,little,16244,59,domestic appliances,270.73333333333335,18-25,1
+68,male,3,rent,little,rich,19892,65,domestic appliances,301.3939393939394,50+,1
+44,female,1,own,little,moderate,18301,29,car,610.0333333333333,36-50,0
+47,male,0,own,moderate,moderate,15049,59,education,250.81666666666666,36-50,1
+54,male,2,own,rich,Unknown,6817,70,repairs,96.01408450704226,50+,0
+42,male,1,rent,little,little,8618,27,car,307.7857142857143,36-50,0
+19,male,1,free,moderate,moderate,19673,53,car,364.31481481481484,18-25,0
+50,male,0,own,moderate,Unknown,6101,36,radio/TV,164.8918918918919,36-50,0
+52,female,3,own,little,little,10644,9,vacation/others,1064.4,50+,0
+70,male,0,own,moderate,little,15282,53,car,283.0,50+,1
+54,female,1,free,little,little,5003,35,car,138.97222222222223,50+,0
+59,female,0,own,rich,moderate,10764,60,repairs,176.45901639344262,50+,1
+48,female,2,own,little,little,1382,39,car,34.55,36-50,0
+45,female,1,own,moderate,rich,11078,69,radio/TV,158.25714285714287,36-50,0
+44,male,3,own,moderate,moderate,7883,27,domestic appliances,281.5357142857143,36-50,0
+32,male,0,free,little,little,3136,63,car,49.0,26-35,1
+26,female,2,own,little,moderate,2972,44,domestic appliances,66.04444444444445,26-35,0
+69,female,1,rent,little,little,2908,27,business,103.85714285714286,50+,1
+55,female,0,own,little,Unknown,6032,34,education,172.34285714285716,50+,0
+72,male,2,own,little,little,1774,50,radio/TV,34.78431372549019,50+,1
+47,male,2,own,Unknown,little,4982,50,business,97.68627450980392,36-50,0
+36,male,0,own,Unknown,moderate,15243,63,car,238.171875,36-50,1
+56,female,2,own,moderate,little,4774,19,domestic appliances,238.7,50+,0
+42,female,1,own,moderate,little,16208,60,car,265.7049180327869,36-50,0
+59,male,0,own,quite rich,Unknown,19891,34,radio/TV,568.3142857142857,50+,0
+49,female,1,own,little,rich,5421,67,domestic appliances,79.72058823529412,36-50,0
+45,male,2,own,little,rich,6969,37,car,183.39473684210526,36-50,0

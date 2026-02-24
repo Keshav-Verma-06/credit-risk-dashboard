@@ -75,27 +75,45 @@ st.markdown("""
 
 @st.cache_resource
 def load_model_auto():
-    """Auto-load model from Models folder, rebuild if missing"""
+    """Auto-load model from Models folder, rebuild if missing or incompatible"""
     model_path = 'Models/xgboost_model.pkl'
     
-    # If model doesn't exist, try to rebuild it
+    # Try to load existing model first
+    if os.path.exists(model_path):
+        try:
+            return load_model(model_path)
+        except (AttributeError, ModuleNotFoundError, ImportError) as e:
+            # Pickle version mismatch or sklearn incompatibility - rebuild needed
+            st.warning(f"⚠️ Model file incompatible with current environment: {type(e).__name__}")
+            st.info("🔄 Rebuilding model for this environment...")
+            # Delete incompatible model
+            try:
+                os.remove(model_path)
+            except:
+                pass
+        except Exception as e:
+            st.error(f"❌ Unexpected error loading model: {type(e).__name__}: {str(e)}")
+            import traceback
+            st.error(traceback.format_exc())
+            return None
+    
+    # Model doesn't exist or was incompatible - rebuild it
     if not os.path.exists(model_path):
-        st.warning("⚠️ Model file not found. Attempting to rebuild model...")
+        st.warning("⚠️ Building model from scratch...")
         try:
             from rebuild_model import rebuild_model_if_missing
             if rebuild_model_if_missing():
-                st.success("✅ Model rebuilt successfully!")
-                # Now try to load the newly built model
-                if os.path.exists(model_path):
-                    try:
-                        return load_model(model_path)
-                    except Exception as e:
-                        st.error(f"❌ Error loading rebuilt model: {type(e).__name__}: {str(e)}")
-                        import traceback
-                        st.error(traceback.format_exc())
-                        return None
+                st.success("✅ Model built successfully!")
+                # Load the newly built model
+                try:
+                    return load_model(model_path)
+                except Exception as e:
+                    st.error(f"❌ Error loading rebuilt model: {type(e).__name__}: {str(e)}")
+                    import traceback
+                    st.error(traceback.format_exc())
+                    return None
             else:
-                st.error("❌ Failed to rebuild model - rebuild_model_if_missing returned False")
+                st.error("❌ Failed to build model - rebuild_model_if_missing returned False")
                 return None
         except Exception as e:
             st.error(f"❌ Error during model rebuild: {type(e).__name__}: {str(e)}")
@@ -103,13 +121,7 @@ def load_model_auto():
             st.error(traceback.format_exc())
             return None
     
-    # If we reach here, model file exists - try to load it
-    try:
-        return load_model(model_path)
-    except Exception as e:
-        st.error(f"❌ Error loading existing model: {type(e).__name__}: {str(e)}")
-        import traceback
-        st.error(traceback.format_exc())
+    return None
         return None
 
 @st.cache_data
