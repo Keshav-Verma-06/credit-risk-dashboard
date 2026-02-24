@@ -77,11 +77,34 @@ st.markdown("""
 def load_model_auto():
     """Auto-load model from Models folder"""
     model_path = 'Models/xgboost_model.pkl'
-    if os.path.exists(model_path):
-        try:
-            return load_model(model_path)
-        except Exception as e:
-            st.error(f"Error loading model: {e}")
+    
+    # Debug: Show current working directory and file check
+    import os.path
+    cwd = os.getcwd()
+    abs_path = os.path.abspath(model_path)
+    file_exists = os.path.exists(model_path)
+    
+    # List Models directory contents if it exists
+    models_dir_exists = os.path.exists('Models')
+    models_contents = os.listdir('Models') if models_dir_exists else []
+    
+    if not file_exists:
+        st.error(f"""
+        🔍 Debug Info:
+        - Current Directory: {cwd}
+        - Looking for: {abs_path}
+        - File exists: {file_exists}
+        - Models directory exists: {models_dir_exists}
+        - Models directory contents: {models_contents}
+        """)
+        return None
+    
+    try:
+        return load_model(model_path)
+    except Exception as e:
+        st.error(f"Error loading model: {type(e).__name__}: {str(e)}")
+        import traceback
+        st.error(traceback.format_exc())
     return None
 
 @st.cache_data
