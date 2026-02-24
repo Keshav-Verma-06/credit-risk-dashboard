@@ -60,19 +60,13 @@ cd "c:\Users\Keshav Verma\Downloads\Masai_proj"
 pip install -r requirements.txt
 ```
 
-### Step 2: Add Your Dataset
+### Step 2: Everything is Ready!
 
-Place your dataset in the `data/` folder:
+The dataset and trained model are already included in the repository:
+- ✅ `data/german_credit_data.csv` - German Credit Dataset (1000 records)
+- ✅ `Models/xgboost_model.pkl` - Pre-trained XGBoost model (81% accuracy)
 
-```bash
-# If you haven't already, create the data folder
-mkdir data
-
-# Add your german_credit_data.csv file to the data folder
-# Or use the Google Drive link in the app
-```
-
-**Note:** The dataset from Google Drive link `1QJYsKj4_MJCPE9nVBgpFPJAsevJ4Sd47` can be uploaded directly via the dashboard sidebar.
+**The dashboard auto-loads everything on startup - no uploads needed!**
 
 ### Step 3: Run Locally
 
@@ -181,12 +175,11 @@ api_key = st.secrets["api"]["key"]
 
 ## 📊 Using the Dashboard
 
-### 1. Upload a Trained Model
+### Dashboard Features
 
-- In the sidebar, click "Upload Trained Model (.pkl)"
-- Or place `.pkl` file in `Models/` folder
+The dashboard automatically loads the trained model and dataset on startup. All features are ready to use immediately:
 
-### 2. Single Prediction
+### 1. Single Prediction
 
 - Navigate to "🔮 Single Prediction"
 - Enter applicant details:
@@ -197,7 +190,7 @@ api_key = st.secrets["api"]["key"]
 - Click "Assess Credit Risk"
 - View detailed risk report
 
-### 3. Batch Prediction
+### 2. Batch Prediction
 
 - Navigate to "📊 Batch Prediction"
 - Upload CSV file with multiple applicants
@@ -209,20 +202,18 @@ api_key = st.secrets["api"]["key"]
 - Click "Process All Predictions"
 - Download results as CSV
 
-### 4. Data Explorer
+### 3. Data Explorer
 
 - Navigate to "📈 Data Explorer"
-- Upload dataset via sidebar
 - Explore:
   - Statistical summaries
   - Risk distribution
   - Feature distributions
   - Correlation analysis
 
-### 5. Model Performance
+### 4. Model Performance
 
 - Navigate to "⚙️ Model Performance"
-- Upload dataset with actual Risk labels
 - Click "Run Model Evaluation"
 - View:
   - Confusion Matrix
