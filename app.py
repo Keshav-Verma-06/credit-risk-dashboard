@@ -85,42 +85,32 @@ def load_model_auto():
             from rebuild_model import rebuild_model_if_missing
             if rebuild_model_if_missing():
                 st.success("✅ Model rebuilt successfully!")
+                # Now try to load the newly built model
+                if os.path.exists(model_path):
+                    try:
+                        return load_model(model_path)
+                    except Exception as e:
+                        st.error(f"❌ Error loading rebuilt model: {type(e).__name__}: {str(e)}")
+                        import traceback
+                        st.error(traceback.format_exc())
+                        return None
             else:
-                st.error("❌ Failed to rebuild model")
+                st.error("❌ Failed to rebuild model - rebuild_model_if_missing returned False")
                 return None
         except Exception as e:
-            st.error(f"❌ Error rebuilding model: {e}")
+            st.error(f"❌ Error during model rebuild: {type(e).__name__}: {str(e)}")
             import traceback
             st.error(traceback.format_exc())
             return None
     
-    # Debug: Show current working directory and file check
-    cwd = os.getcwd()
-    abs_path = os.path.abspath(model_path)
-    file_exists = os.path.exists(model_path)
-    
-    # List Models directory contents if it exists
-    models_dir_exists = os.path.exists('Models')
-    models_contents = os.listdir('Models') if models_dir_exists else []
-    
-    if not file_exists:
-        st.error(f"""
-        🔍 Debug Info:
-        - Current Directory: {cwd}
-        - Looking for: {abs_path}
-        - File exists: {file_exists}
-        - Models directory exists: {models_dir_exists}
-        - Models directory contents: {models_contents}
-        """)
-        return None
-    
+    # If we reach here, model file exists - try to load it
     try:
         return load_model(model_path)
     except Exception as e:
-        st.error(f"Error loading model: {type(e).__name__}: {str(e)}")
+        st.error(f"❌ Error loading existing model: {type(e).__name__}: {str(e)}")
         import traceback
         st.error(traceback.format_exc())
-    return None
+        return None
 
 @st.cache_data
 def load_data_auto():
