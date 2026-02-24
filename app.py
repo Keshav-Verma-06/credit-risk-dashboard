@@ -95,7 +95,6 @@ def load_model_auto():
             return None
     
     # Debug: Show current working directory and file check
-    import os.path
     cwd = os.getcwd()
     abs_path = os.path.abspath(model_path)
     file_exists = os.path.exists(model_path)
