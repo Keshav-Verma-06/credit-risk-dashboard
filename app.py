@@ -75,8 +75,24 @@ st.markdown("""
 
 @st.cache_resource
 def load_model_auto():
-    """Auto-load model from Models folder"""
+    """Auto-load model from Models folder, rebuild if missing"""
     model_path = 'Models/xgboost_model.pkl'
+    
+    # If model doesn't exist, try to rebuild it
+    if not os.path.exists(model_path):
+        st.warning("⚠️ Model file not found. Attempting to rebuild model...")
+        try:
+            from rebuild_model import rebuild_model_if_missing
+            if rebuild_model_if_missing():
+                st.success("✅ Model rebuilt successfully!")
+            else:
+                st.error("❌ Failed to rebuild model")
+                return None
+        except Exception as e:
+            st.error(f"❌ Error rebuilding model: {e}")
+            import traceback
+            st.error(traceback.format_exc())
+            return None
     
     # Debug: Show current working directory and file check
     import os.path
