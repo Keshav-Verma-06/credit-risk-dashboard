@@ -38,21 +38,23 @@ env/
 *~
 
 # Data Files (Large datasets - Do not commit to GitHub)
-data/*.csv
+# Commented out to allow committing project data and models
+# data/*.csv
 data/*.xlsx
 data/*.json
 data/*.parquet
-*.csv
+# *.csv
 !sample_data.csv
 *.db
 *.sqlite
 
 # Model Files (Large trained models)
-Models/*.pkl
+# Commented out to allow committing project models
+# Models/*.pkl
 Models/*.joblib
 Models/*.h5
 Models/*.pt
-*.pkl
+# *.pkl
 *.h5
 
 # MLflow

@@ -70,12 +70,38 @@ st.markdown("""
 
 
 # ============================================================================
+# AUTO-LOAD MODEL AND DATA
+# ============================================================================
+
+@st.cache_resource
+def load_model_auto():
+    """Auto-load model from Models folder"""
+    model_path = 'Models/xgboost_model.pkl'
+    if os.path.exists(model_path):
+        try:
+            return load_model(model_path)
+        except Exception as e:
+            st.error(f"Error loading model: {e}")
+    return None
+
+@st.cache_data
+def load_data_auto():
+    """Auto-load data from data folder"""
+    data_path = 'data/german_credit_data.csv'
+    if os.path.exists(data_path):
+        try:
+            return pd.read_csv(data_path)
+        except Exception as e:
+            st.error(f"Error loading data: {e}")
+    return None
+
+# ============================================================================
 # SESSION STATE INITIALIZATION
 # ============================================================================
 if 'model' not in st.session_state:
-    st.session_state.model = None
+    st.session_state.model = load_model_auto()
 if 'data' not in st.session_state:
-    st.session_state.data = None
+    st.session_state.data = load_data_auto()
 if 'predictions' not in st.session_state:
     st.session_state.predictions = None
 
@@ -98,55 +124,28 @@ with st.sidebar:
     
     st.markdown("---")
     
-    # Model Loading Section
-    st.subheader("🤖 Model Management")
+    # System Status
+    st.subheader("📊 System Status")
     
-    model_file = st.file_uploader("Upload Trained Model (.pkl)", type=['pkl'])
-    
-    if model_file is not None:
-        try:
-            st.session_state.model = pickle.load(model_file)
-            st.success("✅ Model loaded successfully!")
-        except Exception as e:
-            st.error(f"❌ Error loading model: {str(e)}")
-    
-    # Alternative: Load from folder
-    if st.session_state.model is None:
-        if os.path.exists('Models'):
-            model_files = [f for f in os.listdir('Models') if f.endswith('.pkl')]
-            if model_files:
-                selected_model = st.selectbox("Or select from Models folder:", [''] + model_files)
-                if selected_model:
-                    try:
-                        st.session_state.model = load_model(os.path.join('Models', selected_model))
-                        st.success(f"✅ Loaded {selected_model}")
-                    except Exception as e:
-                        st.error(f"❌ Error: {str(e)}")
-    
-    # Data Loading Section
-    st.markdown("---")
-    st.subheader("📂 Data Management")
-    
-    data_source = st.radio("Data Source:", ["Upload CSV", "Load from URL"])
-    
-    if data_source == "Upload CSV":
-        data_file = st.file_uploader("Upload Dataset (.csv)", type=['csv'])
-        if data_file is not None:
-            try:
-                st.session_state.data = pd.read_csv(data_file)
-                st.success(f"✅ Loaded {len(st.session_state.data)} records")
-            except Exception as e:
-                st.error(f"❌ Error: {str(e)}")
+    if st.session_state.model is not None:
+        st.success("✅ Model: Loaded")
+        st.caption("xgboost_model.pkl")
     else:
-        data_url = st.text_input("Enter Data URL (Google Drive supported):")
-        if st.button("Load from URL"):
-            if data_url:
-                try:
-                    with st.spinner("Downloading data..."):
-                        st.session_state.data = load_data(url=data_url)
-                    st.success(f"✅ Loaded {len(st.session_state.data)} records")
-                except Exception as e:
-                    st.error(f"❌ Error: {str(e)}")
+        st.error("❌ Model: Not Found")
+        st.caption("Place model in Models/ folder")
+    
+    if st.session_state.data is not None:
+        st.success(f"✅ Data: {len(st.session_state.data)} records")
+        st.caption("german_credit_data.csv")
+    else:
+        st.warning("⚠️ Data: Not Found")
+        st.caption("Place data in data/ folder")
+    
+    # Refresh button
+    if st.button("🔄 Refresh Data & Model"):
+        st.session_state.model = load_model_auto()
+        st.session_state.data = load_data_auto()
+        st.rerun()
     
     st.markdown("---")
     st.markdown("**👨‍💼 Developed by:**\nKeshav Verma\niitp_aiml_2506273")
@@ -209,14 +208,18 @@ if page == "🏠 Home":
     with col1:
         if st.session_state.model is not None:
             st.success("✅ Model: Loaded and Ready")
+            st.caption("XGBoost Classifier")
         else:
-            st.warning("⚠️ Model: Not Loaded - Upload a model in sidebar")
+            st.error("❌ Model: Failed to Load")
+            st.caption("Check Models/xgboost_model.pkl")
     
     with col2:
         if st.session_state.data is not None:
             st.success(f"✅ Data: Loaded ({len(st.session_state.data)} records)")
+            st.caption("German Credit Dataset")
         else:
-            st.info("ℹ️ Data: No dataset loaded (optional)")
+            st.warning("⚠️ Data: Not Available")
+            st.caption("Check data/german_credit_data.csv")
     
     st.markdown("---")
     
@@ -224,7 +227,7 @@ if page == "🏠 Home":
     st.markdown("""
     ### 📖 Quick Start Guide
     
-    1. **Upload a trained model** (.pkl file) using the sidebar
+    1. **Model & Data**: Auto-loaded on startup
     2. **Choose an operation:**
        - **Single Prediction**: Enter individual applicant details
        - **Batch Prediction**: Upload a CSV file with multiple applicants
@@ -276,7 +279,8 @@ elif page == "🔮 Single Prediction":
     st.markdown('<div class="main-header">🔮 Individual Credit Risk Assessment</div>', unsafe_allow_html=True)
     
     if st.session_state.model is None:
-        st.warning("⚠️ Please upload a trained model in the sidebar first.")
+        st.error("❌ Model not loaded. Please check that Models/xgboost_model.pkl exists.")
+        st.info("💡 Run `python train_quick_model.py` to generate the model.")
     else:
         st.markdown("### 📝 Enter Applicant Information")
         
@@ -402,7 +406,7 @@ elif page == "📊 Batch Prediction":
     st.markdown('<div class="main-header">📊 Batch Credit Risk Assessment</div>', unsafe_allow_html=True)
     
     if st.session_state.model is None:
-        st.warning("⚠️ Please upload a trained model in the sidebar first.")
+        st.error("❌ Model not loaded. Please check that Models/xgboost_model.pkl exists.")
     else:
         st.markdown("### 📤 Upload Applicant Data")
         
@@ -508,7 +512,7 @@ elif page == "📈 Data Explorer":
     st.markdown('<div class="main-header">📈 Dataset Analysis & Exploration</div>', unsafe_allow_html=True)
     
     if st.session_state.data is None:
-        st.warning("⚠️ Please load a dataset in the sidebar first.")
+        st.warning("⚠️ Dataset not loaded. Check that data/german_credit_data.csv exists.")
     else:
         df = st.session_state.data
         
@@ -628,9 +632,9 @@ elif page == "⚙️ Model Performance":
     st.markdown('<div class="main-header">⚙️ Model Performance Metrics</div>', unsafe_allow_html=True)
     
     if st.session_state.model is None:
-        st.warning("⚠️ Please upload a trained model in the sidebar first.")
+        st.error("❌ Model not loaded. Check that Models/xgboost_model.pkl exists.")
     elif st.session_state.data is None or 'Risk' not in st.session_state.data.columns:
-        st.warning("⚠️ Please load a dataset with actual Risk labels to evaluate model performance.")
+        st.warning("⚠️ Dataset with Risk labels required. Check data/german_credit_data.csv")
     else:
         st.markdown("### 🔬 Evaluate Model on Current Dataset")
         
