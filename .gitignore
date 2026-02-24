@@ -1,93 +1,26 @@
-# Python
+# Python cache
 __pycache__/
 *.py[cod]
-*$py.class
 *.so
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
 
 # Virtual Environment
 venv/
-ENV/
 env/
 .venv
 
-# Jupyter Notebook
-.ipynb_checkpoints/
-*.ipynb
-
-# IDEs
+# IDE
 .vscode/
 .idea/
 *.swp
-*.swo
-*~
-
-# Data Files (Large datasets - Do not commit to GitHub)
-# Commented out to allow committing project data and models
-# data/*.csv
-data/*.xlsx
-data/*.json
-data/*.parquet
-# *.csv
-!sample_data.csv
-*.db
-*.sqlite
-
-# Model Files (Large trained models)
-# Commented out to allow committing project models
-# Models/*.pkl
-Models/*.joblib
-Models/*.h5
-Models/*.pt
-# *.pkl
-*.h5
-
-# MLflow
-mlruns/
-mlruns_fixed/
-.trash/
-
-# Logs
-*.log
-logs/
 
 # OS
 .DS_Store
 Thumbs.db
-desktop.ini
 
-# Streamlit
+# Environment secrets
+.env
 .streamlit/secrets.toml
 
-# Environment Variables
-.env
-.env.local
-
-# Temporary Files
+# Temporary files
 *.tmp
 temp/
-tmp/
-
-# Visualizations (if too large)
-Visualizations/*.png
-Visualizations/*.jpg
-Visualizations/*.pdf
-
-# Processed Data
-Processed_Data/*.pkl
-Processed_Data/*.csv
