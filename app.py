@@ -1084,7 +1084,25 @@ elif page == "⚙️ Model Performance":
                         with col2:
                             # JSON export
                             import json
-                            json_data = json.dumps(filtered_results, indent=2)
+                            
+                            # Convert numpy types to native Python types for JSON serialization
+                            def convert_to_serializable(obj):
+                                if isinstance(obj, dict):
+                                    return {k: convert_to_serializable(v) for k, v in obj.items()}
+                                elif isinstance(obj, list):
+                                    return [convert_to_serializable(item) for item in obj]
+                                elif isinstance(obj, (np.integer, np.int64, np.int32)):
+                                    return int(obj)
+                                elif isinstance(obj, (np.floating, np.float64, np.float32)):
+                                    return float(obj)
+                                elif isinstance(obj, np.ndarray):
+                                    return obj.tolist()
+                                else:
+                                    return obj
+                            
+                            serializable_results = convert_to_serializable(filtered_results)
+                            json_data = json.dumps(serializable_results, indent=2)
+                            
                             st.download_button(
                                 label="📄 Download as JSON",
                                 data=json_data,
