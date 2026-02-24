@@ -122,7 +122,6 @@ def load_model_auto():
             return None
     
     return None
-        return None
 
 @st.cache_data
 def load_data_auto():
