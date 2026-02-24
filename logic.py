@@ -182,9 +182,33 @@ def load_model(model_path):
         Trained model object
     """
     try:
-        with open(model_path, 'rb') as f:
-            model = pickle.load(f)
-        return model
+        import joblib
+        import sklearn
+        from packaging import version
+        
+        # Load model with joblib (better for sklearn models)
+        model_data = joblib.load(model_path)
+        
+        # Handle both old pickle format and new metadata format
+        if isinstance(model_data, dict) and 'model' in model_data:
+            # New format with metadata
+            trained_version = model_data.get('sklearn_version', 'unknown')
+            current_version = sklearn.__version__
+            
+            # Warn if version mismatch
+            if trained_version != 'unknown' and trained_version != current_version:
+                import streamlit as st
+                st.warning(f"⚠️ sklearn version mismatch: Model trained with {trained_version}, running {current_version}")
+            
+            return model_data['model']
+        else:
+            # Old format - just the model
+            return model_data
+            
+    except AttributeError as e:
+        if "_RemainderColsList" in str(e) or "sklearn" in str(e).lower():
+            raise Exception(f"sklearn version incompatibility detected. Please retrain the model with current sklearn version. Original error: {str(e)}")
+        raise Exception(f"Error loading model: {str(e)}")
     except Exception as e:
         raise Exception(f"Error loading model: {str(e)}")
 

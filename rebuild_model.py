@@ -1,13 +1,17 @@
 """
 Rebuild model on Streamlit Cloud startup if model file is missing
+Uses joblib for better sklearn compatibility across versions
 """
 import os
-import pickle
+import joblib
 import pandas as pd
+import sys
+import datetime
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from xgboost import XGBClassifier
+import sklearn
 
 def rebuild_model_if_missing():
     """Train and save model if it doesn't exist"""
@@ -18,6 +22,7 @@ def rebuild_model_if_missing():
         return True
     
     print("Model file not found. Rebuilding model...")
+    print(f"Environment: Python {sys.version}, sklearn {sklearn.__version__}")
     
     # Load data
     data_path = 'data/german_credit_data.csv'
@@ -74,11 +79,20 @@ def rebuild_model_if_missing():
     # Create Models directory if it doesn't exist
     os.makedirs('Models', exist_ok=True)
     
-    # Save model
-    with open(model_path, 'wb') as f:
-        pickle.dump(model, f)
+    # Save model with metadata for version compatibility checking
+    model_metadata = {
+        'model': model,
+        'sklearn_version': sklearn.__version__,
+        'trained_at': datetime.datetime.now().isoformat(),
+        'python_version': sys.version,
+        'feature_columns': feature_cols
+    }
+    
+    # Use joblib.dump instead of pickle for better sklearn compatibility
+    joblib.dump(model_metadata, model_path, compress=3)
     
     print(f"Model saved to {model_path}")
+    print(f"sklearn version: {sklearn.__version__}")
     return True
 
 if __name__ == "__main__":
